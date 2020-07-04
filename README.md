@@ -2,7 +2,7 @@
 
 # skip-the-dishes-courier-mock
 
-> Skip the dishes courier page mock
+> Skip the dishes courier page mock. NOT OFFICIAL.
 
 ## Install
 
