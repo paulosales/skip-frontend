@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'CoreSansA45';
+  src: url('CoreSansA45-webfont.woff2') format('woff2'),
+    url('CoreSansA45-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CoreSansA55';
+  src: url('CoreSansA55-webfont.woff2') format('woff2'),
+    url('CoreSansA55-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CoreSansA65';
+  src: url('CoreSansA65-webfont.woff2') format('woff2'),
+    url('CoreSansA65-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
