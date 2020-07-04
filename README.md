@@ -1,6 +1,6 @@
 <img src="public/assets/mock.png" width="120" align="right" />
 
-# skip-the-dishes-courier-mock - [![Build Status](https://travis-ci.com/paulosales/skip-the-dishes-courier-mock.svg?branch=master)](https://travis-ci.com/paulosales/skip-the-dishes-courier-mock) [![codecov](https://codecov.io/gh/paulosales/skip-the-dishes-courier-mock/branch/master/graph/badge.svg)](https://codecov.io/gh/paulosales/skip-the-dishes-courier-mock)
+# skip-the-dishes-courier-mock - [![Build Status](https://travis-ci.com/paulosales/skip-the-dishes-courier-mock.svg?branch=master)](https://travis-ci.com/paulosales/skip-the-dishes-courier-mock) [![codecov](https://codecov.io/gh/paulosales/skip-the-dishes-courier-mock/branch/master/graph/badge.svg)](https://codecov.io/gh/paulosales/skip-the-dishes-courier-mock) ![Netlify](https://img.shields.io/netlify/d986ccb8-d351-4fc9-b36e-d1ef33267442)
 
 > Skip the dishes courier page mock. NOT OFFICIAL.
 
