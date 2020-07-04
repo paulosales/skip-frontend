@@ -1,5 +1,6 @@
 {
   "name": "skip-the-dishes-courier-mock",
+  "description": "Skip the dishes courier page mock",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
