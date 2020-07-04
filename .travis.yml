@@ -5,8 +5,8 @@ node_js:
   - 13
 branches:
   only:
-    - master
-    - ci
+  - gh-pages
+  - /.*/
 cache: yarn
 install:
   - yarn install
