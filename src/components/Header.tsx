@@ -11,7 +11,6 @@ const HeaderContainer = styled.header`
   padding-right: 8px;
   background-color: transparent;
   z-index: 1100;
-  width: 100vw;
 `;
 
 const HeaderRow = styled.div`
