@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { ReactElement } from "react";
+import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   position: relative;
@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
   background-color: transparent;
   z-index: 1100;
   width: 100vw;
-`
+`;
 
 const HeaderRow = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const HeaderRow = styled.div`
   justify-content: space-between;
   padding-left: 24px;
   padding-right: 24px;
-`
+`;
 
 const HamburgerMenu = styled.button`
   color: #fff;
@@ -31,15 +31,22 @@ const HamburgerMenu = styled.button`
   &:focus {
     outline: 0;
   }
-`
+`;
 
- function Header() {
-  return (<HeaderContainer>
+function Header(): ReactElement {
+  return (
+    <HeaderContainer>
       <HeaderRow>
-        <img alt="Skip The Dishes Logo" draggable="false" src="assets/SkipLogo-Light.svg"/>
+        <img
+          alt="Skip The Dishes Logo"
+          draggable="false"
+          src="assets/SkipLogo-Light.svg"
+        />
         <HamburgerMenu type="button" aria-label="Open Menu">
           <span>
-            <span className="material-icons" aria-hidden="true">menu</span>
+            <span className="material-icons" aria-hidden="true">
+              menu
+            </span>
           </span>
           <span></span>
         </HamburgerMenu>
@@ -48,4 +55,4 @@ const HamburgerMenu = styled.button`
   );
 }
 
-export default Header
+export default Header;

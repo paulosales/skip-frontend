@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+
 
 const FooterContainer = styled.section`
   display: flex;
@@ -27,7 +28,7 @@ const FooterButton = styled(Button)`
   height: 50px;
 `
 
-function Footer() {
+function Footer(): ReactElement {
   return (<FooterContainer>
     <FooterTitle>Deliver with Skip</FooterTitle>
     <FooterButton>Apply Now</FooterButton>

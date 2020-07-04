@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 
 const QuestionsContainer = styled.section`
@@ -164,7 +164,7 @@ const questions2 = [
   },
 ]
 
-function Questions() {
+function Questions(): ReactElement {
   return (<QuestionsContainer>
     <QuestionsBox>
       <QuestionsTitle>Questions</QuestionsTitle>
