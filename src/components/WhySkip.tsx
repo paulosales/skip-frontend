@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
-const WhySkypContainer = styled.section`
+const WhySkipContainer = styled.section`
   background-color: #f2f3f7;
 `;
 
@@ -71,9 +71,9 @@ const VideoButton = styled(Button)`
   justify-content: center;
 `;
 
-function WhySkyp(): ReactElement {
+function WhySkip(): ReactElement {
   return (
-    <WhySkypContainer>
+    <WhySkipContainer>
       <WhySkipRow>
         <WhySkipInfo>
           <WhySkipInfoBox>
@@ -92,8 +92,8 @@ function WhySkyp(): ReactElement {
           </VideoButton>
         </WhySkipVideo>
       </WhySkipRow>
-    </WhySkypContainer>
+    </WhySkipContainer>
   );
 }
 
-export default WhySkyp;
+export default WhySkip;
