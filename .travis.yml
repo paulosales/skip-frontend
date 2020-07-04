@@ -10,6 +10,8 @@ branches:
 cache: yarn
 install:
   - yarn install
+  - yarn global add codecov
 script:
   - yarn lint
-  - yarn test:ci
+  - yarn test:ci --coverage
+  - codecov
