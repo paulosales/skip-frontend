@@ -4,6 +4,10 @@
 
 > Skip the dishes courier page mock. NOT OFFICIAL.
 
+## Demo app
+
+A demo version of the mocking page is on line at https://skipmock.netlify.app.
+
 ## Install
 
 Clone the repository, go the repository folder and run `yarn start` 🚀
