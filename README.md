@@ -20,3 +20,5 @@ yarn start
 2. Redux
 3. Typescript
 4. Html + CSS (styled components)
+5. Travis CI
+6. Codecov
