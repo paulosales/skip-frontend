@@ -21,6 +21,7 @@ const GetStartedBox = styled.div`
   box-sizing: border-box;
   width: calc(100% + 40px);
   margin: -20px;
+  max-width: 1150px;
 `;
 
 const GetStartedTitle = styled.div`
