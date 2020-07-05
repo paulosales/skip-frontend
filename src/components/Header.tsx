@@ -1,9 +1,12 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+
 import MenuButton from "./MenuButton";
 import { showAppMenu } from "../redux/app-menu/actions";
-import { useDispatch } from "react-redux";
 import device from "../responsive/devices";
+import { RootState } from "../redux/root-reducer";
+import { ENGLISH } from "../redux/language-selector/types";
 
 const HeaderContainer = styled.header`
   position: relative;
@@ -26,23 +29,24 @@ const HeaderRow = styled.div`
   padding-right: 24px;
 `;
 
-const HeaderLogo = styled.div`
-  background-image: url(assets/Skip.svg);
+const HeaderLogo = styled.div<{ lang : string }>`
+  background-image: url(assets/skip-sm.svg);
   background-repeat: no-repeat;
-  width: 132px;
+  width: ${props => props.lang === ENGLISH?"132px":"157px"};
   height: 31px;
 
   @media ${device.laptop} {
-    background-image: url(assets/SkipLogo-Light.svg);
+    background-image: url(assets/${props => props.lang === ENGLISH?"skip-lg-en.svg":"skip-lg-fr.svg"});
   }
 `
 
 function Header(): ReactElement {
   const dispatch = useDispatch();
+  const{selectedLanguage} = useSelector((state: RootState) => state.languageSelector)
   return (
     <HeaderContainer>
       <HeaderRow>
-        <HeaderLogo/>
+        <HeaderLogo lang={selectedLanguage}/>
         <MenuButton onClick={() => dispatch(showAppMenu())} />
       </HeaderRow>
     </HeaderContainer>
