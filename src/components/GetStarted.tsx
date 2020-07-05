@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import { FormattedMessage } from "react-intl";
 
 const GetStartedContainer = styled.section`
   display: flex;
@@ -70,30 +71,37 @@ function GetStarted(): ReactElement {
   return (
     <GetStartedContainer>
       <GetStartedBox>
-        <GetStartedTitle>How To Get Started</GetStartedTitle>
+        <GetStartedTitle>
+          <FormattedMessage id="howToGetStarted" />
+        </GetStartedTitle>
         <GetStartedStep>
-          <GetStartedStepTitle>Sign Up</GetStartedStepTitle>
+          <GetStartedStepTitle>
+            <FormattedMessage id="signup" />
+          </GetStartedStepTitle>
           <GetStartedStepDescription>
-            Create an account, upload documents, and complete a quick background
-            check.
+            <FormattedMessage id="signupDetail" />
           </GetStartedStepDescription>
         </GetStartedStep>
         <GetStartedStep>
-          <GetStartedStepTitle>Download the Courier App</GetStartedStepTitle>
+          <GetStartedStepTitle>
+            <FormattedMessage id="downloadTheCourierApp" />
+          </GetStartedStepTitle>
           <GetStartedStepDescription>
-            Set your availability within the Courier App and pick up any
-            available open shifts.
+            <FormattedMessage id="downloadTheCourierAppDetail" />
           </GetStartedStepDescription>
         </GetStartedStep>
         <GetStartedStep>
-          <GetStartedStepTitle>Earn Money</GetStartedStepTitle>
+          <GetStartedStepTitle>
+            <FormattedMessage id="earnMoney" />
+          </GetStartedStepTitle>
           <GetStartedStepDescription>
-            Once you have all the tools you need, you can start making
-            deliveries to earn extra money.
+            <FormattedMessage id="earnMoneyDetail" />
           </GetStartedStepDescription>
         </GetStartedStep>
         <GetStartedButtonBox>
-          <GetStartedButton>Apply now</GetStartedButton>
+          <GetStartedButton>
+            <FormattedMessage id="applyNow" />
+          </GetStartedButton>
         </GetStartedButtonBox>
       </GetStartedBox>
     </GetStartedContainer>

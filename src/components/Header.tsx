@@ -1,5 +1,8 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
+import MenuButton from "./MenuButton";
+import { showAppMenu } from "../redux/app-menu/actions";
+import { useDispatch } from "react-redux";
 
 const HeaderContainer = styled.header`
   position: relative;
@@ -22,17 +25,8 @@ const HeaderRow = styled.div`
   padding-right: 24px;
 `;
 
-const HamburgerMenu = styled.button`
-  color: #fff;
-  border: 0;
-  background-color: transparent;
-
-  &:focus {
-    outline: 0;
-  }
-`;
-
 function Header(): ReactElement {
+  const dispatch = useDispatch();
   return (
     <HeaderContainer>
       <HeaderRow>
@@ -41,14 +35,7 @@ function Header(): ReactElement {
           draggable="false"
           src="assets/SkipLogo-Light.svg"
         />
-        <HamburgerMenu type="button" aria-label="Open Menu">
-          <span>
-            <span className="material-icons" aria-hidden="true">
-              menu
-            </span>
-          </span>
-          <span></span>
-        </HamburgerMenu>
+        <MenuButton onClick={() => dispatch(showAppMenu())} />
       </HeaderRow>
     </HeaderContainer>
   );

@@ -1,7 +1,9 @@
+/* eslint-disable react/display-name */
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import Button from "./Button";
+import { FormattedMessage, injectIntl, useIntl } from "react-intl";
 
 const FormContainer = styled.div`
   flex-grow: 1;
@@ -54,6 +56,7 @@ const FormCheckboxField = styled.div`
   align-items: center;
   margin-bottom: 7px;
   margin-top: 24px;
+  height: 45px;
 
   font-size: 0.9rem;
 
@@ -76,6 +79,12 @@ const FormInput = styled.input`
   border: 0;
   font-size: 1.1rem;
   margin-top: 15px;
+  width: 400px;
+
+  ${FormFieldGroup} & {
+    flex-grow: unset;
+    width: 90%;
+  }
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
 
@@ -91,6 +100,7 @@ const FormInput = styled.input`
 
 const StyledSelect = styled(Select)`
   flex-grow: 1;
+  border-width: 0px;
 `;
 
 const CreateAccountButton = styled(Button)`
@@ -104,6 +114,17 @@ const LoginMessage = styled.div`
   margin-bottom: 8px;
 `;
 
+const selectStyle = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  control: (provided: any) => ({
+    ...provided,
+    borderWidth: "0px",
+    borderRadius: "0px",
+    outline: "none",
+    borderBottom: "1px solid #0000006b",
+  }),
+};
+
 const cities = [
   { value: 1, label: "Calgary, AB" },
   { value: 1, label: "Vancouver, BC" },
@@ -116,14 +137,18 @@ const languages = [
 ];
 
 function CourierForm(): ReactElement {
+  const intl = useIntl();
+
   return (
     <FormContainer>
-      <FormTitle>Sign Up Now</FormTitle>
+      <FormTitle>
+        <FormattedMessage id="signUpNow" />
+      </FormTitle>
       <form id="apply">
         <FormFieldGroup>
           <FormField>
             <FormLabel htmlFor="firstName-signup" top>
-              First Name *
+              <FormattedMessage id="firstName" /> *
             </FormLabel>
             <InputCover>
               <FormInput
@@ -137,7 +162,7 @@ function CourierForm(): ReactElement {
           </FormField>
           <FormField>
             <FormLabel htmlFor="lastName-signup" top>
-              Last Name *
+              <FormattedMessage id="lastName" /> *
             </FormLabel>
             <InputCover>
               <FormInput
@@ -152,7 +177,7 @@ function CourierForm(): ReactElement {
         </FormFieldGroup>
         <FormField>
           <FormLabel htmlFor="email-signup" top>
-            E-mail *
+            <FormattedMessage id="email" /> *
           </FormLabel>
           <InputCover>
             <FormInput
@@ -166,7 +191,7 @@ function CourierForm(): ReactElement {
         </FormField>
         <FormField>
           <FormLabel htmlFor="phone-signup" top>
-            Mobile Phone *
+            <FormattedMessage id="mobilePhone" /> *
           </FormLabel>
           <InputCover>
             <FormInput
@@ -181,12 +206,14 @@ function CourierForm(): ReactElement {
 
         <FormField>
           <FormLabel htmlFor="city-select-signup" top>
-            City
+            <FormattedMessage id="city" />
           </FormLabel>
           <InputCover>
             <StyledSelect
+              placeholder={intl.formatMessage({ id: "select" })}
               name="city-select-signup"
               id="city-select-signup"
+              styles={selectStyle}
               options={cities}
             />
           </InputCover>
@@ -194,12 +221,14 @@ function CourierForm(): ReactElement {
 
         <FormField>
           <FormLabel htmlFor="city-select-signup" top>
-            Preferred Contact Language (chat, emails)
+            <FormattedMessage id="preferredContactLanguage" />
           </FormLabel>
           <InputCover>
             <StyledSelect
+              placeholder={intl.formatMessage({ id: "select" })}
               name="city"
               id="city-select-signup"
+              styles={selectStyle}
               options={languages}
             />
           </InputCover>
@@ -212,15 +241,20 @@ function CourierForm(): ReactElement {
             id="courierAgreementCheck-box"
           />
           <div>
-            I have read, understand, and agree to the{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://couriers.skipthedishes.com/help/legal#agreement"
-            >
-              Courier Agreement
-            </a>
-            .
+            <FormattedMessage
+              id="courrierAgreementMessage"
+              values={{
+                courierAgreementLink: (chunks: string) => (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://couriers.skipthedishes.com/help/legal#agreement"
+                  >
+                    {chunks}
+                  </a>
+                ),
+              }}
+            />
           </div>
         </FormCheckboxField>
 
@@ -231,42 +265,56 @@ function CourierForm(): ReactElement {
             id="privacyAndTermsCheck-box"
           />
           <div>
-            I have read, understand, and agree to the{" "}
-            <a
-              id="privacy-policy-link"
-              href="https://skipthedishes.com/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Privacy Policy
-            </a>{" "}
-            and the{" "}
-            <a
-              id="terms-service-link"
-              href="https://skipthedishes.com/terms-of-service"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Terms of Service
-            </a>
-            .
+            <FormattedMessage
+              id="privacyPolicyMessage"
+              values={{
+                privacyPolicyLink: (chunks: string) => (
+                  <a
+                    id="privacy-policy-link"
+                    href="https://skipthedishes.com/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {chunks}
+                  </a>
+                ),
+                termsOfServiceLink: (chunks: string) => (
+                  <a
+                    id="terms-service-link"
+                    href="https://skipthedishes.com/terms-of-service"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {chunks}
+                  </a>
+                ),
+              }}
+            />
           </div>
         </FormCheckboxField>
 
-        <CreateAccountButton>Create Account</CreateAccountButton>
+        <CreateAccountButton>
+          <FormattedMessage id="createAccount" />
+        </CreateAccountButton>
 
         <LoginMessage>
-          Already have an account?{" "}
-          <a
-            id="login-link-signup"
-            href="https://couriers.skipthedishes.com/login"
-          >
-            Login Here
-          </a>
+          <FormattedMessage
+            id="alreadyHaveAccountMessage"
+            values={{
+              loginLink: (chunks: string) => (
+                <a
+                  id="login-link-signup"
+                  href="https://couriers.skipthedishes.com/login"
+                >
+                  {chunks}
+                </a>
+              ),
+            }}
+          />
         </LoginMessage>
       </form>
     </FormContainer>
   );
 }
 
-export default CourierForm;
+export default injectIntl(CourierForm);

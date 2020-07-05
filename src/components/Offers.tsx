@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
+import { FormattedMessage } from "react-intl";
 
 const OffersContainer = styled.section`
   padding: 72px 64px 96px 64px;
@@ -61,20 +62,22 @@ function Offers(): ReactElement {
         <OfferBox>
           <OfferImage src="assets/calendar.svg" />
           <OfferInfo>
-            <OfferTitle>Choose Your Schedule</OfferTitle>
+            <OfferTitle>
+              <FormattedMessage id="chooseYourScheduler" />
+            </OfferTitle>
             <OfferDescription>
-              You are in control of your own schedule and can adjust your weekly
-              availability based on what works for you.
+              <FormattedMessage id="chooseYourSchedulerDetail" />
             </OfferDescription>
           </OfferInfo>
         </OfferBox>
         <OfferBox>
           <OfferImage src="assets/money.svg" />
           <OfferInfo>
-            <OfferTitle>Get Paid Weekly</OfferTitle>
+            <OfferTitle>
+              <FormattedMessage id="getPaidWeekly" />
+            </OfferTitle>
             <OfferDescription>
-              At the end of each week, your earnings and tips will be directly
-              deposited into your account.
+              <FormattedMessage id="getPaidWeeklyDetail" />
             </OfferDescription>
           </OfferInfo>
         </OfferBox>

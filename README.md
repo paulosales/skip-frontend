@@ -4,7 +4,7 @@
 
 ## Demo app
 
-A demo version of the mocking page is on line at https://skipmock.netlify.app.
+A demo version of the mocking page is online at https://skipmock.netlify.app.
 
 ## Install
 
@@ -15,6 +15,10 @@ git clone git@github.com:paulosales/skip-the-dishes-courier-mock.git
 cd skip-the-dishes-courier-mock
 yarn start
 ```
+
+## Features implemented
+
+1. Int'l support (english and français)
 
 ## Tech stack
 

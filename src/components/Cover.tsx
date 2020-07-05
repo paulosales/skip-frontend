@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import CourierForm from "./CourierForm";
+import { FormattedMessage } from "react-intl";
 
 const CoverContainer = styled.div`
   display: relative;
@@ -31,11 +32,26 @@ const CoverControlGroup = styled.div`
   margin: 0px 60px 0px 60px;
 `;
 
+const Headline = styled.div`
+  height: 615px;
+  padding: 52px;
+`;
+
+const DeliverWithSkip = styled.div`
+  color: rgb(255, 255, 255);
+  font-family: CoreSansA65;
+  font-size: 72px;
+  letter-spacing: 0px;
+  line-height: 70px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+`;
+
 const Quote = styled.div`
   color: #fff;
   flex-grow: 1;
   display: flex;
-  margin-top: 160px;
+  margin-top: 50px;
 `;
 
 function Cover(): ReactElement {
@@ -44,11 +60,14 @@ function Cover(): ReactElement {
       <CoverBackground />
       <CoverSubContainer>
         <CoverControlGroup>
-          <Quote>
-            In just a few easy steps, you’ll be cruising towards making extra
-            money. It’s a flexible opportunity that you can customize to fit
-            your lifestyle.
-          </Quote>
+          <Headline>
+            <DeliverWithSkip>
+              <FormattedMessage id="deliverWithSkip" />
+            </DeliverWithSkip>
+            <Quote>
+              <FormattedMessage id="quote" />
+            </Quote>
+          </Headline>
           <CourierForm></CourierForm>
         </CoverControlGroup>
       </CoverSubContainer>

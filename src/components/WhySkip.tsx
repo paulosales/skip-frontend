@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import { FormattedMessage } from "react-intl";
 
 const WhySkipContainer = styled.section`
   background-color: #f2f3f7;
@@ -77,18 +78,18 @@ function WhySkip(): ReactElement {
       <WhySkipRow>
         <WhySkipInfo>
           <WhySkipInfoBox>
-            <WhySkipTitle>Why SkipTheDishes?</WhySkipTitle>
+            <WhySkipTitle>
+              <FormattedMessage id="whySkipTheDishes" />
+            </WhySkipTitle>
             <WhySkipDetails>
-              SkipTheDishes couriers are independently contracted and enjoy the
-              flexibility of working on their own schedules to deliver great
-              food to hungry customers.
+              <FormattedMessage id="whySkipTheDishesDetail" />
             </WhySkipDetails>
           </WhySkipInfoBox>
         </WhySkipInfo>
         <WhySkipVideo>
           <WhySkipImage src="assets/application_video_background.jpg" />
           <VideoButton type="button" id="skip-button">
-            Watch The Video
+            <FormattedMessage id="watchTheVideo" />
           </VideoButton>
         </WhySkipVideo>
       </WhySkipRow>
