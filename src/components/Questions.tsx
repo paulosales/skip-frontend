@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import device from '../responsive/devices'
 
 const QuestionsContainer = styled.section`
   padding: 64px 40px;
@@ -29,13 +30,25 @@ const QuestionsTitle = styled.div`
   padding: 20px;
 `
 
-const QuestionsRows = styled.div`
+const QuestionsList = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
+`
+
+const QuestionsListBlock = styled.div`
   padding: 20px;
   flex-grow: 0;
-  max-width: 50%;
-  flex-basis: 50%;
   margin: 0;
   box-sizing: border-box;
+
+  @media ${device.laptop} {
+    max-width: 50%;
+    flex-basis: 50%;
+  }
 `
 
 const Question = styled.div<{expanded?: boolean}>`
@@ -168,24 +181,26 @@ function Questions(): ReactElement {
   return (<QuestionsContainer>
     <QuestionsBox>
       <QuestionsTitle>Questions</QuestionsTitle>
-      <QuestionsRows>
-        {questions1.map(question => <Question key={question.id}>
-          <QuestionHeader>
-            <QuestionTitle>{question.title}</QuestionTitle>
-            <QuestionButton>add</QuestionButton>
-          </QuestionHeader>
-          <QuestionBody>{question.detail}</QuestionBody>
-        </Question>)}
-      </QuestionsRows>
-      <QuestionsRows>
-        {questions2.map(question => <Question key={question.id}>
-          <QuestionHeader>
-            <QuestionTitle>{question.title}</QuestionTitle>
-            <QuestionButton>add</QuestionButton>
-          </QuestionHeader>
-          <QuestionBody>{question.detail}</QuestionBody>
-        </Question>)}
-      </QuestionsRows>
+      <QuestionsList>
+        <QuestionsListBlock>
+          {questions1.map(question => <Question key={question.id}>
+            <QuestionHeader>
+              <QuestionTitle>{question.title}</QuestionTitle>
+              <QuestionButton>add</QuestionButton>
+            </QuestionHeader>
+            <QuestionBody>{question.detail}</QuestionBody>
+          </Question>)}
+        </QuestionsListBlock>
+        <QuestionsListBlock>
+          {questions2.map(question => <Question key={question.id}>
+            <QuestionHeader>
+              <QuestionTitle>{question.title}</QuestionTitle>
+              <QuestionButton>add</QuestionButton>
+            </QuestionHeader>
+            <QuestionBody>{question.detail}</QuestionBody>
+          </Question>)}
+        </QuestionsListBlock>
+      </QuestionsList>
     </QuestionsBox>
   </QuestionsContainer>)
 }

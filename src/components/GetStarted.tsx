@@ -2,19 +2,23 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FormattedMessage } from "react-intl";
+import device from "../responsive/devices";
 
 const GetStartedContainer = styled.section`
   display: flex;
-  padding: 72px;
+  padding: 48px;
   justify-content: center;
   background-color: #172026;
+
+  @media ${device.laptop} {
+    padding: 72px;
+  }
 `;
 
 const GetStartedBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  max-width: 1150px;
   width: calc(100% + 40px);
   margin: -20px;
 `;
@@ -23,8 +27,7 @@ const GetStartedTitle = styled.div`
   margin: 0;
   box-sizing: border-box;
   flex-grow: 0;
-  max-width: 100%;
-  flex-basis: 100%;
+  width: 100%;
   padding: 20px;
   color: #fff;
   font-family: CoreSansA55;
@@ -36,11 +39,26 @@ const GetStartedTitle = styled.div`
 
 const GetStartedStep = styled.div`
   flex-grow: 0;
-  max-width: 33.33333%;
-  flex-basis: 33.33333%;
+  max-width: 100%;
+  flex-basis: 100%;
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
+
+
+  @media ${device.laptop} {
+    max-width: 33.33333%;
+    flex-basis: 33.33333%;
+  }
+`;
+
+const GetStartedStepList = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
 `;
 
 const GetStartedStepTitle = styled.div`
@@ -74,30 +92,32 @@ function GetStarted(): ReactElement {
         <GetStartedTitle>
           <FormattedMessage id="howToGetStarted" />
         </GetStartedTitle>
-        <GetStartedStep>
-          <GetStartedStepTitle>
-            <FormattedMessage id="signup" />
-          </GetStartedStepTitle>
-          <GetStartedStepDescription>
-            <FormattedMessage id="signupDetail" />
-          </GetStartedStepDescription>
-        </GetStartedStep>
-        <GetStartedStep>
-          <GetStartedStepTitle>
-            <FormattedMessage id="downloadTheCourierApp" />
-          </GetStartedStepTitle>
-          <GetStartedStepDescription>
-            <FormattedMessage id="downloadTheCourierAppDetail" />
-          </GetStartedStepDescription>
-        </GetStartedStep>
-        <GetStartedStep>
-          <GetStartedStepTitle>
-            <FormattedMessage id="earnMoney" />
-          </GetStartedStepTitle>
-          <GetStartedStepDescription>
-            <FormattedMessage id="earnMoneyDetail" />
-          </GetStartedStepDescription>
-        </GetStartedStep>
+        <GetStartedStepList>
+          <GetStartedStep>
+            <GetStartedStepTitle>
+              <FormattedMessage id="signup" />
+            </GetStartedStepTitle>
+            <GetStartedStepDescription>
+              <FormattedMessage id="signupDetail" />
+            </GetStartedStepDescription>
+          </GetStartedStep>
+          <GetStartedStep>
+            <GetStartedStepTitle>
+              <FormattedMessage id="downloadTheCourierApp" />
+            </GetStartedStepTitle>
+            <GetStartedStepDescription>
+              <FormattedMessage id="downloadTheCourierAppDetail" />
+            </GetStartedStepDescription>
+          </GetStartedStep>
+          <GetStartedStep>
+            <GetStartedStepTitle>
+              <FormattedMessage id="earnMoney" />
+            </GetStartedStepTitle>
+            <GetStartedStepDescription>
+              <FormattedMessage id="earnMoneyDetail" />
+            </GetStartedStepDescription>
+          </GetStartedStep>
+        </GetStartedStepList>
         <GetStartedButtonBox>
           <GetStartedButton>
             <FormattedMessage id="applyNow" />

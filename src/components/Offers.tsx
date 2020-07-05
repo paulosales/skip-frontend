@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
+import device from "../responsive/devices";
 
 const OffersContainer = styled.section`
   padding: 72px 64px 96px 64px;
@@ -10,13 +11,18 @@ const OffersContainer = styled.section`
 `;
 
 const OffersRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 960px;
   width: calc(100% + 40px);
   margin: -20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  
   box-sizing: border-box;
+
+  @media ${device.laptop} {
+    justify-content: space-between;
+  }
 `;
 
 const OfferBox = styled.div`

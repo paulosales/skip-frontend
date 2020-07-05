@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FormattedMessage } from "react-intl";
+import device from "../responsive/devices";
 
 const WhySkipContainer = styled.section`
   background-color: #f2f3f7;
@@ -12,7 +13,14 @@ const WhySkipRow = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   box-sizing: border-box;
+  flex-direction: column;
   width: 100%;
+  align-items: center;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    align-items: stretch;
+  }
 `;
 
 const WhySkipInfo = styled.div`
@@ -20,8 +28,11 @@ const WhySkipInfo = styled.div`
   align-items: center;
   justify-content: center;
   flex-grow: 0;
-  max-width: 50%;
-  flex-basis: 50%;
+
+  @media ${device.tablet} {
+    max-width: 50%;
+    flex-basis: 50%;
+  }
 `;
 
 const WhySkipInfoBox = styled.div`
@@ -31,11 +42,15 @@ const WhySkipInfoBox = styled.div`
 
 const WhySkipTitle = styled.p`
   display: block;
-  font-size: 48px;
+  font-size: 24px;
   margin-top: 0;
   font-family: CoreSansA65;
   margin-bottom: 40px;
   letter-spacing: 0.2px;
+
+  @media ${device.laptop} {
+    font-size: 48px;
+  }
 `;
 
 const WhySkipDetails = styled.div`
@@ -54,8 +69,10 @@ const WhySkipVideo = styled.div`
   align-items: center;
   justify-content: center;
   flex-grow: 0;
-  max-width: 50%;
-  flex-basis: 50%;
+  @media ${device.tablet} {
+    max-width: 50%;
+    flex-basis: 50%;
+  }
 `;
 
 const WhySkipImage = styled.img`

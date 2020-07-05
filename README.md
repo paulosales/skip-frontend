@@ -19,6 +19,7 @@ yarn start
 ## Features implemented
 
 1. Int'l support (english and français)
+2. Responsiveness
 
 ## Tech stack
 

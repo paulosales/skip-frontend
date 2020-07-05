@@ -2,10 +2,12 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import CourierForm from "./CourierForm";
 import { FormattedMessage } from "react-intl";
+import device from "../responsive/devices";
 
 const CoverContainer = styled.div`
   display: relative;
 `;
+
 const CoverBackground = styled.div`
   position: fixed;
   top: 0px;
@@ -24,17 +26,33 @@ const CoverSubContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+
+  @media ${device.laptop} {
+    padding-right: 0px 40px 0px 40px;
+  }
 `;
 
 const CoverControlGroup = styled.div`
   max-width: 1200px;
   display: flex;
-  margin: 0px 60px 0px 60px;
+  flex-direction: column;
+
+  margin: 0px;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+    margin: 0px 60px 0px 60px;
+  }
 `;
 
 const Headline = styled.div`
-  height: 615px;
-  padding: 52px;
+  padding: 24px;
+
+  @media ${device.laptop} {
+    width: 50%;
+    height: 615px;
+    padding: 52px;
+  }
 `;
 
 const DeliverWithSkip = styled.div`

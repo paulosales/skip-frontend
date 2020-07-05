@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Select from "react-select";
 import Button from "./Button";
 import { FormattedMessage, injectIntl, useIntl } from "react-intl";
+import device from "../responsive/devices";
 
 const FormContainer = styled.div`
   flex-grow: 1;
@@ -11,7 +12,11 @@ const FormContainer = styled.div`
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
   padding: 48px 64px 64px;
-  border-radius: 4px;
+
+  @media ${device.laptop} {
+    width: 50%;
+    border-radius: 4px;
+  }
 `;
 
 const FormTitle = styled.div`
@@ -79,7 +84,6 @@ const FormInput = styled.input`
   border: 0;
   font-size: 1.1rem;
   margin-top: 15px;
-  width: 400px;
 
   ${FormFieldGroup} & {
     flex-grow: unset;

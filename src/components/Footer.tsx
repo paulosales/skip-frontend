@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FormattedMessage } from "react-intl";
+import device from "../responsive/devices";
 
 const FooterContainer = styled.section`
   display: flex;
@@ -13,12 +14,16 @@ const FooterContainer = styled.section`
 `;
 
 const FooterTitle = styled.p`
-  font-size: 48px;
+  font-size: 24px;
   color: #ffffff;
   margin: 0;
   text-align: center;
   font-family: CoreSansA55;
   letter-spacing: -1.5px;
+
+  @media ${device.tabletS} {
+    font-size: 48px;
+  }
 `;
 
 const FooterButton = styled(Button)`
