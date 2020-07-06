@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import CourierForm from "./CourierForm";
 import { FormattedMessage } from "react-intl";
-import device from "../responsive/devices";
+import device from "../responsive/device";
 
 const CoverContainer = styled.div`
   display: relative;

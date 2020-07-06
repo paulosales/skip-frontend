@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
-import device from "../responsive/devices";
+import device from "../responsive/device";
 
 const OffersContainer = styled.section`
   padding: 72px 64px 96px 64px;
@@ -17,7 +17,7 @@ const OffersRow = styled.div`
   max-width: 960px;
   width: calc(100% + 40px);
   margin: -20px;
-  
+
   box-sizing: border-box;
 
   @media ${device.laptop} {

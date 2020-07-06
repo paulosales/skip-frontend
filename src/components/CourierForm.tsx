@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Select from "react-select";
 import Button from "./Button";
 import { FormattedMessage, injectIntl, useIntl } from "react-intl";
-import device from "../responsive/devices";
+import device from "../responsive/device";
 
 const FormContainer = styled.div`
   flex-grow: 1;

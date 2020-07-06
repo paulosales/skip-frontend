@@ -1,5 +1,5 @@
-import enCA from "./en-CA";
-import frCA from "./fr-CA";
+import { enCA } from "./en-CA";
+import { frCA } from "./fr-CA";
 import { ENGLISH, FRANCAIS } from "../redux/language-selector/types";
 
 export type MessagesList = typeof enCA | typeof frCA;

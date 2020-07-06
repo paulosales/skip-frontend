@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FormattedMessage } from "react-intl";
-import device from "../responsive/devices";
+import device from "../responsive/device";
 
 const GetStartedContainer = styled.section`
   display: flex;
@@ -45,7 +45,6 @@ const GetStartedStep = styled.div`
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
-
 
   @media ${device.laptop} {
     max-width: 33.33333%;

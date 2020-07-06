@@ -1,14 +1,10 @@
-import {
-  QuestionState,
-  QuestionActionsTypes,
-  TOGGLE_QUESTION,
-} from "./types";
+import { QuestionState, QuestionActionsTypes, TOGGLE_QUESTION } from "./types";
 
 const INITIAL_STATE = {
   expandedQuestions: new Set<number>(),
 };
 
-export default function questionReducer(
+export function questionReducer(
   state: QuestionState = INITIAL_STATE,
   action: QuestionActionsTypes
 ): QuestionState {
@@ -16,8 +12,8 @@ export default function questionReducer(
 
   if (action.type === TOGGLE_QUESTION) {
     expandedQuestions = new Set(state.expandedQuestions);
-    if(expandedQuestions.has(action.payload)) {
-      expandedQuestions.delete(action.payload)
+    if (expandedQuestions.has(action.payload)) {
+      expandedQuestions.delete(action.payload);
     } else {
       expandedQuestions.add(action.payload);
     }
