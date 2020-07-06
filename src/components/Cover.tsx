@@ -51,7 +51,7 @@ const Headline = styled.div`
   @media ${device.laptop} {
     width: 50%;
     height: 615px;
-    padding: 52px;
+    padding: 0px 30px;
   }
 `;
 
