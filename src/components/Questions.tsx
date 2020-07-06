@@ -131,60 +131,61 @@ const QuestionBody = styled.div`
   border-width: 0px;
 `;
 
-const questions1 = [
-  {
-    id: 1,
-    titleId: "howDoIMakeMoney",
-    detailId: "howDoIMakeMoneyDetail",
-  },
-  {
-    id: 2,
-    titleId: "howMuchWillIMake",
-    detailId: "howMuchWillIMakeDetail",
-  },
-  {
-    id: 3,
-    titleId: "howManyOrdersCanIExpectToDeliver",
-    detailId: "howManyOrdersCanIExpectToDeliverDetail",
-  },
-  {
-    id: 4,
-    titleId: "whenDoIGetPaid",
-    detailId: "whenDoIGetPaidDetail",
-  },
-];
-
-const questions2 = [
-  {
-    id: 5,
-    titleId: "whatDoINeedToBeACourier",
-    detailId: "whatDoINeedToBeACourierDetail",
-  },
-  {
-    id: 6,
-    titleId: "whenCanIGetStarted",
-    detailId: "whenCanIGetStartedDetail",
-  },
-  {
-    id: 7,
-    titleId: "whatDoesItMeanToBeIndependentlyContracted",
-    detailId: "whatDoesItMeanToBeIndependentlyContractedDetail",
-  },
-  {
-    id: 8,
-    titleId: "canIDeliverUsingMyBicicle",
-    detailId: "canIDeliverUsingMyBicicleDetail",
-  },
-  {
-    id: 9,
-    titleId: "canIDeliverAsAnOnFootCourier",
-    detailId: "canIDeliverAsAnOnFootCourierDetail",
-  },
-  {
-    id: 10,
-    titleId: "whatAreTheAdvantages",
-    detailId: "whatAreTheAdvantagesDetail",
-  },
+const questions = [
+  [
+    {
+      id: 1,
+      titleId: "howDoIMakeMoney",
+      detailId: "howDoIMakeMoneyDetail",
+    },
+    {
+      id: 2,
+      titleId: "howMuchWillIMake",
+      detailId: "howMuchWillIMakeDetail",
+    },
+    {
+      id: 3,
+      titleId: "howManyOrdersCanIExpectToDeliver",
+      detailId: "howManyOrdersCanIExpectToDeliverDetail",
+    },
+    {
+      id: 4,
+      titleId: "whenDoIGetPaid",
+      detailId: "whenDoIGetPaidDetail",
+    },
+  ],
+  [
+    {
+      id: 5,
+      titleId: "whatDoINeedToBeACourier",
+      detailId: "whatDoINeedToBeACourierDetail",
+    },
+    {
+      id: 6,
+      titleId: "whenCanIGetStarted",
+      detailId: "whenCanIGetStartedDetail",
+    },
+    {
+      id: 7,
+      titleId: "whatDoesItMeanToBeIndependentlyContracted",
+      detailId: "whatDoesItMeanToBeIndependentlyContractedDetail",
+    },
+    {
+      id: 8,
+      titleId: "canIDeliverUsingMyBicicle",
+      detailId: "canIDeliverUsingMyBicicleDetail",
+    },
+    {
+      id: 9,
+      titleId: "canIDeliverAsAnOnFootCourier",
+      detailId: "canIDeliverAsAnOnFootCourierDetail",
+    },
+    {
+      id: 10,
+      titleId: "whatAreTheAdvantages",
+      detailId: "whatAreTheAdvantagesDetail",
+    },
+  ],
 ];
 
 function Questions(): ReactElement {
@@ -198,52 +199,31 @@ function Questions(): ReactElement {
       <QuestionsBox>
         <QuestionsTitle>Questions</QuestionsTitle>
         <QuestionsList>
-          <QuestionsListBlock>
-            {questions1.map((question) => (
-              <Question
-                key={question.id}
-                onClick={() => {
-                  dispatch(toggleQuestion(question.id));
-                }}
-                expanded={expandedQuestions.has(question.id)}
-              >
-                <QuestionHeader>
-                  <QuestionTitle>
-                    <FormattedMessage id={question.titleId} />
-                  </QuestionTitle>
-                  <QuestionButton
-                    expanded={expandedQuestions.has(question.id)}
-                  />
-                </QuestionHeader>
-                <QuestionBody>
-                  <FormattedMessage id={question.detailId} />
-                </QuestionBody>
-              </Question>
-            ))}
-          </QuestionsListBlock>
-          <QuestionsListBlock>
-            {questions2.map((question) => (
-              <Question
-                key={question.id}
-                onClick={() => {
-                  dispatch(toggleQuestion(question.id));
-                }}
-                expanded={expandedQuestions.has(question.id)}
-              >
-                <QuestionHeader>
-                  <QuestionTitle>
-                    <FormattedMessage id={question.titleId} />
-                  </QuestionTitle>
-                  <QuestionButton
-                    expanded={expandedQuestions.has(question.id)}
-                  />
-                </QuestionHeader>
-                <QuestionBody>
-                  <FormattedMessage id={question.detailId} />
-                </QuestionBody>
-              </Question>
-            ))}
-          </QuestionsListBlock>
+          {questions.map((blocks, idx) => (
+            <QuestionsListBlock key={idx}>
+              {blocks.map((question) => (
+                <Question
+                  key={question.id}
+                  onClick={() => {
+                    dispatch(toggleQuestion(question.id));
+                  }}
+                  expanded={expandedQuestions.has(question.id)}
+                >
+                  <QuestionHeader>
+                    <QuestionTitle>
+                      <FormattedMessage id={question.titleId} />
+                    </QuestionTitle>
+                    <QuestionButton
+                      expanded={expandedQuestions.has(question.id)}
+                    />
+                  </QuestionHeader>
+                  <QuestionBody>
+                    <FormattedMessage id={question.detailId} />
+                  </QuestionBody>
+                </Question>
+              ))}
+            </QuestionsListBlock>
+          ))}
         </QuestionsList>
       </QuestionsBox>
     </QuestionsContainer>
