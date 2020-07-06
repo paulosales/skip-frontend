@@ -140,11 +140,20 @@ const languages = [
   { value: "en", label: "English" },
 ];
 
+export function moveToApplyForm(): void {
+  const applyForm = document.querySelector("#apply-form-container");
+  if (applyForm) {
+    applyForm.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+}
+
 function CourierForm(): ReactElement {
   const intl = useIntl();
 
   return (
-    <FormContainer>
+    <FormContainer id="apply-form-container">
       <FormTitle>
         <FormattedMessage id="signUpNow" />
       </FormTitle>

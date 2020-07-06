@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import { FormattedMessage } from "react-intl";
 import device from "../responsive/device";
+import { moveToApplyForm } from "./CourierForm";
 
 const GetStartedContainer = styled.section`
   display: flex;
@@ -119,7 +120,11 @@ function GetStarted(): ReactElement {
           </GetStartedStep>
         </GetStartedStepList>
         <GetStartedButtonBox>
-          <GetStartedButton>
+          <GetStartedButton
+            onClick={() => {
+              moveToApplyForm();
+            }}
+          >
             <FormattedMessage id="applyNow" />
           </GetStartedButton>
         </GetStartedButtonBox>
