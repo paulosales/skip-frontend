@@ -14,7 +14,12 @@ const HamburgerMenuButton = styled.button`
 
 function MenuButton(props: HTMLAttributes<HTMLElement>): ReactElement {
   return (
-    <HamburgerMenuButton type="button" aria-label="Open Menu" {...props}>
+    <HamburgerMenuButton
+      data-testid="app-menu-button"
+      type="button"
+      aria-label="Open Menu"
+      {...props}
+    >
       <MaterialIcon aria-hidden="true">menu</MaterialIcon>
     </HamburgerMenuButton>
   );

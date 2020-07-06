@@ -21,7 +21,9 @@ const AppMenuContainer = styled.div<{ visible?: boolean }>`
   box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
     0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   transform: translate(${(props) => (props.visible ? "0px" : "300px")}, 0px);
-  transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: ${(props) => (props.visible ? "1.0" : "0.0")};
+  transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    opacity 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 `;
 
 const AppMenuScreenBlocker = styled.div<{ visible?: boolean }>`
@@ -72,13 +74,14 @@ function AppMenu(): ReactElement {
 
   return (
     <div>
-      <AppMenuContainer visible={visible}>
+      <AppMenuContainer data-testid="app-menu" visible={visible}>
         <AppMenuBox>
           <LanguageSelector />
           <Copyright>© 2020 SkipTheDishes</Copyright>
         </AppMenuBox>
       </AppMenuContainer>
       <AppMenuScreenBlocker
+        data-testid="app-menu-screen-blocker"
         onClick={() => {
           dispatch(hideAppMenu());
         }}
