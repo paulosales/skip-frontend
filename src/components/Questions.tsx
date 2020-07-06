@@ -5,6 +5,7 @@ import device from "../responsive/device";
 import { RootState } from "../redux/root-reducer";
 import { toggleQuestion } from "../redux/questions/actions";
 import { FormattedMessage } from "react-intl";
+import MaterialIcon from "./MaterialIcon";
 
 const QuestionsContainer = styled.section`
   padding: 64px 40px;
@@ -60,12 +61,11 @@ const Question = styled.div<{ expanded?: boolean }>`
   flex-basis: auto;
   flex-direction: column;
   flex-shrink: 0;
-  height: ${(props) => (props.expanded ? "auto" : "70px")};
   max-height: ${(props) => (props.expanded ? "400px" : "70px")};
   overflow-x: hidden;
   overflow-y: hidden;
   border-bottom: solid 1px #b0b6c9;
-  transition: max-height 0.6s ease-in-out;
+  transition: max-height 0.4s ease-in-out;
 `;
 
 const QuestionHeader = styled.div`
@@ -90,26 +90,18 @@ const QuestionTitle = styled.div`
   flex-shrink: 1;
 `;
 
-const QuestionButton = styled.span<{ expanded?: boolean }>`
-  font-family: "Material Icons";
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  direction: ltr;
+const QuestionButton = styled(MaterialIcon)<{ expanded?: boolean }>`
   width: 1em;
   height: 1em;
   overflow: hidden;
   font-size: 24px;
-  user-select: none;
   flex-shrink: 0;
   color: rgb(0, 108, 187);
+  transform: rotate(${(props) => (props.expanded ? "180deg" : "0deg")});
+  transition: transform 0.4s ease-in-out;
 
   &::after {
-    content: ${(props) => (props.expanded ? `"remove"` : `"add"`)};
+    content: "keyboard_arrow_down";
   }
 `;
 
