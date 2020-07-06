@@ -195,6 +195,7 @@ function Questions(): ReactElement {
             <QuestionsListBlock key={idx}>
               {blocks.map((question) => (
                 <Question
+                  data-testid={`question${question.id}`}
                   key={question.id}
                   onClick={() => {
                     dispatch(toggleQuestion(question.id));
@@ -206,6 +207,7 @@ function Questions(): ReactElement {
                       <FormattedMessage id={question.titleId} />
                     </QuestionTitle>
                     <QuestionButton
+                      data-testid={`question-button${question.id}`}
                       expanded={expandedQuestions.has(question.id)}
                     />
                   </QuestionHeader>

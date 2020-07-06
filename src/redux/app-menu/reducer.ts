@@ -10,17 +10,11 @@ const INITIAL_STATE = {
 };
 
 function lockScroll() {
-  const body = document.getElementById("body");
-  if (body) {
-    body.style.overflow = "hidden";
-  }
+  document.body.style.overflow = "hidden";
 }
 
 function unlockScroll() {
-  const body = document.getElementById("body");
-  if (body) {
-    body.style.overflow = "unset";
-  }
+  document.body.style.overflow = "unset";
 }
 
 export function appMenuReducer(

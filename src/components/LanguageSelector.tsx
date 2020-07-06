@@ -129,18 +129,20 @@ export default function LanguageSelector(): ReactElement {
         <LanguageSelectorIcon>language</LanguageSelectorIcon>
         <LanguageSelectorTitle>Language</LanguageSelectorTitle>
         <LanguageSelectorSwitcher
+          data-testid="language-switcher"
           onClick={() => {
             dispatch(toggleLanguageItems());
           }}
           expanded={expanded}
         />
       </LanguageSelectorHeader>
-      <LanguagesList expanded={expanded}>
+      <LanguagesList data-testid="languages-list" expanded={expanded}>
         <Language>
           <LanguageTitle>English</LanguageTitle>
           <RadioButton
             type="radio"
             name="language"
+            data-testid="english-selector"
             onClick={() => {
               dispatch(selectLanguage(ENGLISH));
             }}
@@ -153,6 +155,7 @@ export default function LanguageSelector(): ReactElement {
           <RadioButton
             type="radio"
             name="language"
+            data-testid="francais-selector"
             onClick={() => {
               dispatch(selectLanguage(FRANCAIS));
             }}

@@ -6,7 +6,7 @@ import App from "../App";
 import store from "../redux/store";
 
 describe("AppMenu", () => {
-  describe("Click two time at AppMenuButton", () => {
+  describe("when click two times at AppMenuButton", () => {
     it("should shown and hide the app menu", () => {
       const { getByTestId } = render(
         <Provider store={store}>
@@ -14,15 +14,31 @@ describe("AppMenu", () => {
         </Provider>
       );
 
-      const appMenuEl = getByTestId("app-menu");
+      const appMenu = getByTestId("app-menu");
 
-      const appMenuButtonEl = getByTestId("app-menu-button");
+      const appMenuButton = getByTestId("app-menu-button");
       const appMenuScreenBlocker = getByTestId("app-menu-screen-blocker");
-      expect(appMenuEl).toHaveStyle("opacity: 0.0");
-      fireEvent.click(appMenuButtonEl);
-      expect(appMenuEl).toHaveStyle("opacity: 1.0");
+      expect(appMenu).toHaveStyle("opacity: 0.0");
+      fireEvent.click(appMenuButton);
+      expect(appMenu).toHaveStyle("opacity: 1.0");
       fireEvent.click(appMenuScreenBlocker);
-      expect(appMenuEl).toHaveStyle("opacity: 0.0");
+      expect(appMenu).toHaveStyle("opacity: 0.0");
+    });
+  });
+
+  describe("when open the app menu", () => {
+    it("should frozen the page scrolling", () => {
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+
+      const appMenuButton = getByTestId("app-menu-button");
+
+      fireEvent.click(appMenuButton);
+
+      expect(document.body).toHaveStyle("overflow: hidden");
     });
   });
 });
