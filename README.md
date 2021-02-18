@@ -5,6 +5,13 @@
 ## Demo app
 
 A demo version of the mocking page is online at https://skipmock.netlify.app.
+Or, if you preffer, you can raise a docker container with frontend application with:
+
+```bash
+docker run -p 8080:80 prsales/skip-mock-frontend:latest
+```
+
+and open the application locally at the http://localhost:8080/
 
 ## Install
 
