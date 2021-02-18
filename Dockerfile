@@ -6,7 +6,6 @@ WORKDIR  /app
 COPY package.json .
 RUN npm install
 COPY . .
-RUN ls -la node_modules/@types/
 RUN npm run build
 
 FROM nginx:1.19-alpine
