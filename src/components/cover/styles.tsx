@@ -1,14 +1,11 @@
-import React, { ReactElement } from "react";
 import styled from "styled-components";
-import CourierForm from "./CourierForm";
-import { FormattedMessage } from "react-intl";
-import device from "../responsive/device";
+import device from "../../responsive/device";
 
-const CoverContainer = styled.div`
+export const CoverContainer = styled.div`
   display: relative;
 `;
 
-const CoverBackground = styled.div`
+export const CoverBackground = styled.div`
   position: fixed;
   top: 0px;
   width: 100vw;
@@ -22,7 +19,7 @@ const CoverBackground = styled.div`
   z-index: -1;
 `;
 
-const CoverSubContainer = styled.div`
+export const CoverSubContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -32,7 +29,7 @@ const CoverSubContainer = styled.div`
   }
 `;
 
-const CoverControlGroup = styled.div`
+export const CoverControlGroup = styled.div`
   max-width: 1200px;
   display: flex;
   flex-direction: column;
@@ -45,7 +42,7 @@ const CoverControlGroup = styled.div`
   }
 `;
 
-const Headline = styled.div`
+export const Headline = styled.div`
   padding: 24px;
 
   @media ${device.laptop} {
@@ -55,7 +52,7 @@ const Headline = styled.div`
   }
 `;
 
-const DeliverWithSkip = styled.div`
+export const DeliverWithSkip = styled.div`
   color: rgb(255, 255, 255);
   font-family: CoreSansA65;
   font-size: 72px;
@@ -65,32 +62,9 @@ const DeliverWithSkip = styled.div`
   margin-bottom: 40px;
 `;
 
-const Quote = styled.div`
+export const Quote = styled.div`
   color: #fff;
   flex-grow: 1;
   display: flex;
   margin-top: 50px;
 `;
-
-function Cover(): ReactElement {
-  return (
-    <CoverContainer>
-      <CoverBackground />
-      <CoverSubContainer>
-        <CoverControlGroup>
-          <Headline>
-            <DeliverWithSkip>
-              <FormattedMessage id="deliverWithSkip" />
-            </DeliverWithSkip>
-            <Quote>
-              <FormattedMessage id="quote" />
-            </Quote>
-          </Headline>
-          <CourierForm></CourierForm>
-        </CoverControlGroup>
-      </CoverSubContainer>
-    </CoverContainer>
-  );
-}
-
-export default Cover;

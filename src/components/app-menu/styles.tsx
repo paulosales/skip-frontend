@@ -1,11 +1,6 @@
-import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import LanguageSelector from "./LanguageSelector";
-import { RootState } from "../redux/root-reducer";
-import { hideAppMenu } from "../redux/app-menu/actions";
 
-const AppMenuContainer = styled.div<{ visible?: boolean }>`
+export const AppMenuContainer = styled.div<{ visible?: boolean }>`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
@@ -26,7 +21,7 @@ const AppMenuContainer = styled.div<{ visible?: boolean }>`
     opacity 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 `;
 
-const AppMenuScreenBlocker = styled.div<{ visible?: boolean }>`
+export const AppMenuScreenBlocker = styled.div<{ visible?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +37,7 @@ const AppMenuScreenBlocker = styled.div<{ visible?: boolean }>`
   transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 `;
 
-const AppMenuBox = styled.div`
+export const AppMenuBox = styled.div`
   display: flex;
   align-items: stretch;
   flex-basis: auto;
@@ -57,7 +52,7 @@ const AppMenuBox = styled.div`
   width: calc(env(safe-area-inset-right) + 300px);
 `;
 
-const Copyright = styled.div`
+export const Copyright = styled.div`
   color: rgb(51, 51, 51);
   font-family: CoreSansA45;
   font-size: 12px;
@@ -67,28 +62,3 @@ const Copyright = styled.div`
   margin-bottom: 24px;
   text-align: center;
 `;
-
-function AppMenu(): ReactElement {
-  const { visible } = useSelector((state: RootState) => state.appMenu);
-  const dispatch = useDispatch();
-
-  return (
-    <div>
-      <AppMenuContainer data-testid="app-menu" visible={visible}>
-        <AppMenuBox>
-          <LanguageSelector />
-          <Copyright>© 2020 SkipTheDishes</Copyright>
-        </AppMenuBox>
-      </AppMenuContainer>
-      <AppMenuScreenBlocker
-        data-testid="app-menu-screen-blocker"
-        onClick={() => {
-          dispatch(hideAppMenu());
-        }}
-        visible={visible}
-      />
-    </div>
-  );
-}
-
-export default AppMenu;

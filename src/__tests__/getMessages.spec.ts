@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import getMessages from "../messages";
-import { ENGLISH, FRANCAIS } from "../redux/language-selector/types";
+import { ENGLISH_CA, FRANCAIS_CA } from "../redux/language-selector/types";
 
 describe("getMessages", () => {
   describe("when get the messages using ENGLISH id", () => {
     it("should return the english messages", () => {
-      const messages = getMessages(ENGLISH);
+      const messages = getMessages(ENGLISH_CA);
 
       expect(messages).not.toBeNull();
       expect(messages).toHaveProperty("signUpNow");
@@ -16,7 +16,7 @@ describe("getMessages", () => {
 
   describe("when get the messages using FRANCAIS id", () => {
     it("should return the français messages", () => {
-      const messages = getMessages(FRANCAIS);
+      const messages = getMessages(FRANCAIS_CA);
 
       expect(messages).not.toBeNull();
       expect(messages).toHaveProperty("signUpNow");

@@ -3,12 +3,12 @@ import {
   LanguageSelectorActionTypes,
   SELECT_LANGUAGE,
   TOGGLE_LANGUAGE_ITEMS,
-  ENGLISH,
+  ENGLISH_CA,
 } from "./types";
 
 const INITIAL_STATE: LanguageSelectorState = {
   expanded: true,
-  selectedLanguage: ENGLISH,
+  selectedLanguage: ENGLISH_CA,
 };
 
 export function languageSelectorReducer(

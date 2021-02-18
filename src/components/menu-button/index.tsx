@@ -1,16 +1,6 @@
 import React, { HTMLAttributes, ReactElement } from "react";
-import styled from "styled-components";
-import MaterialIcon from "./MaterialIcon";
-
-const HamburgerMenuButton = styled.button`
-  color: #fff;
-  border: 0;
-  background-color: transparent;
-
-  &:focus {
-    outline: 0;
-  }
-`;
+import MaterialIcon from "../material-icon";
+import { HamburgerMenuButton } from "./styles";
 
 function MenuButton(props: HTMLAttributes<HTMLElement>): ReactElement {
   return (

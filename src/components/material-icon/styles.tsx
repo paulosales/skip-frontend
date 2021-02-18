@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MaterialIcon = styled.span`
+export const MaterialIcon = styled.span`
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
@@ -16,5 +16,3 @@ const MaterialIcon = styled.span`
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 `;
-
-export default MaterialIcon;

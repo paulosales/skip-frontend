@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+export const Button = styled.button`
   height: 50px;
   background-color: rgb(233, 20, 49);
   color: rgb(255, 255, 255);
@@ -32,5 +32,3 @@ const Button = styled.button`
   vertical-align: middle;
   justify-content: center;
 `;
-
-export default Button;
