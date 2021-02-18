@@ -7,11 +7,11 @@ branches:
   only:
   - gh-pages
   - /.*/
-cache: yarn
+cache: npm
 install:
-  - yarn install
-  - yarn global add codecov
+  - npm install
+  - npm install -g codecov
 script:
-  - yarn lint
-  - yarn test:ci --coverage
+  - npm run lint
+  - npm run test:ci --coverage
   - codecov
